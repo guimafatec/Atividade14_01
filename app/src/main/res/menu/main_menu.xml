@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_exemplares"
+        android:title="@string/menu_exemplares" />
+    <item
+        android:id="@+id/menu_alugueis"
+        android:title="@string/menu_alugueis" />
+    <item
+        android:id="@+id/menu_alunos"
+        android:title="@string/menu_alunos" />
+</menu>

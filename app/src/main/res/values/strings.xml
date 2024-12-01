@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Atividade14_01</string>
+    <string name="my_name_ra">Gustavo Guimarães de Oliveira - 1110482313013</string>
+    <string name="menu_exemplares">Exemplares</string>
+    <string name="menu_alugueis">Aluguéis</string>
+    <string name="menu_alunos">Alunos</string>
+
+    <!-- Values Home -->
+    <string name="tv_home">Biblioteca</string>
+
+    <!-- Values  Alugueis-->
+    <string name="tv_alugueis">Aluguéis</string>
+
+    <!-- Values  Exemplares-->
+    <string name="tv_exemplares">Exemplares</string>
+
+    <!-- Values  Alunos-->
+    <string name="tv_alunos">Alunos</string>
+    <string name="et_ra">RA</string>
+
+
+</resources>
