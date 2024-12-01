@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRaName2" />
 
     <EditText
-        android:id="@+id/etNome"
+        android:id="@+id/etNomeAluno"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -40,7 +40,7 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBuscar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscarAluno" />
 
     <EditText
         android:id="@+id/etRa"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_alunos" />
 
     <Button
-        android:id="@+id/btnBuscar"
+        android:id="@+id/btnBuscarAluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etRa" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etEmailAluno"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -75,7 +75,7 @@
         android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="@string/et_emailAluno"
-        android:inputType="text"
+        android:inputType="text|textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/btnInserirAluno"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -88,7 +88,7 @@
         android:layout_marginEnd="38dp"
         android:text="@string/btn_modificarAluno"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailAluno" />
 
     <Button
         android:id="@+id/btnInserirAluno"

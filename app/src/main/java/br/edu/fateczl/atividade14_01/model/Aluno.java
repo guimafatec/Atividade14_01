@@ -38,6 +38,6 @@ public class Aluno {
     @NonNull
     @Override
     public String toString() {
-        return String.format("%d - %s", ra, nome);
+        return String.format("%d - %s - %s", ra, nome, email);
     }
 }
