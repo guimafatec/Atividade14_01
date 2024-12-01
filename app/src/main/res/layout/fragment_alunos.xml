@@ -11,38 +11,125 @@
         android:id="@+id/tvRaName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/my_name_ra"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_alugueis2"
+        android:id="@+id/tv_alunos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="@string/tv_alunos"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="50dp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvRaName2" />
+
+    <EditText
+        android:id="@+id/etNome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="45dp"
+        android:ems="10"
+        android:hint="@string/et_nomeAlunos"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscar" />
 
     <EditText
         android:id="@+id/etRa"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="44dp"
         android:ems="10"
         android:hint="@string/et_ra"
-        android:inputType="text"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="117dp" />
+        android:inputType="number|numberSigned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_alunos" />
 
     <Button
         android:id="@+id/btnBuscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="284dp"
-        tools:layout_editor_absoluteY="111dp" />
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_buscarAluno"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRa" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="@string/et_emailAluno"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnInserirAluno"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnModificarAluno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="38dp"
+        android:text="@string/btn_modificarAluno"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+    <Button
+        android:id="@+id/btnInserirAluno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginBottom="297dp"
+        android:text="@string/btn_inserirAluno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnExcluirAluno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:text="@string/btn_excluirAluno"
+        app:layout_constraintStart_toStartOf="@+id/tvListaAlunos"
+        app:layout_constraintTop_toBottomOf="@+id/btnInserirAluno" />
+
+    <Button
+        android:id="@+id/btnListarAluno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/btn_listarAluno"
+        app:layout_constraintBottom_toTopOf="@+id/tvListaAlunos"
+        app:layout_constraintEnd_toEndOf="@+id/tvListaAlunos" />
+
+    <TextView
+        android:id="@+id/tvListaAlunos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="30dp"
+        android:scrollbars="vertical"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnExcluirAluno" />
 </androidx.constraintlayout.widget.ConstraintLayout>

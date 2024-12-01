@@ -11,20 +11,177 @@
         android:id="@+id/tvRaName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/my_name_ra"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_alugueis3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="@string/tv_exemplares"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="50dp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvRaName3" />
+
+    <Button
+        android:id="@+id/btn_Buscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/btn_buscarExemplar"
+        app:layout_constraintBottom_toTopOf="@+id/etQtdPaginas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etCodigo" />
+
+    <EditText
+        android:id="@+id/etCodigo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="87dp"
+        android:ems="10"
+        android:hint="@string/et_codigo"
+        android:inputType="numberSigned"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Buscar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_alugueis3" />
+
+    <EditText
+        android:id="@+id/etQtdPaginas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:hint="@string/et_qtdPaginas"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etNomeExemplar" />
+
+    <EditText
+        android:id="@+id/etNomeExemplar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="28dp"
+        android:ems="10"
+        android:hint="@string/et_nomeExemplar"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etQtdPaginas"
+        app:layout_constraintEnd_toStartOf="@+id/etQtdPaginas"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/etIsbn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/rb_livro"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_livro" />
+
+        <RadioButton
+            android:id="@+id/rb_revista"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_revista" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/etIsbn2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="46dp"
+        android:ems="10"
+        android:hint="@string/et_edicao"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etIsbn"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <EditText
+        android:id="@+id/etIsbn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="295dp"
+        android:layout_marginEnd="87dp"
+        android:ems="10"
+        android:hint="@string/et_isbn"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/etIsbn2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnModificarExemplar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/btn_modificarAluno"
+        app:layout_constraintEnd_toEndOf="@+id/btnListarExemplar"
+        app:layout_constraintTop_toBottomOf="@+id/etIsbn2" />
+
+    <Button
+        android:id="@+id/btnInserirExemplar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="@string/btn_inserirAluno"
+        app:layout_constraintStart_toStartOf="@+id/etIsbn"
+        app:layout_constraintTop_toBottomOf="@+id/etIsbn" />
+
+    <Button
+        android:id="@+id/btnListarExemplar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/btn_listarAluno"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnModificarExemplar" />
+
+    <Button
+        android:id="@+id/btnExcluirExemplar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="17dp"
+        android:text="@string/btn_excluirAluno"
+        app:layout_constraintStart_toStartOf="@+id/btnInserirExemplar"
+        app:layout_constraintTop_toBottomOf="@+id/btnInserirExemplar" />
+
+    <TextView
+        android:id="@+id/tvListarExemplar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="16dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnExcluirExemplar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

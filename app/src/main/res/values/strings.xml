@@ -10,13 +10,33 @@
 
     <!-- Values  Alugueis-->
     <string name="tv_alugueis">Aluguéis</string>
+    <string name="tv_dtRetirada">Data de Retirada</string>
+    <string name="tv_dtDevolucao">Data de Devolução</string>
 
     <!-- Values  Exemplares-->
     <string name="tv_exemplares">Exemplares</string>
+    <string name="et_codigo">Codigo</string>
+    <string name="et_nomeExemplar">Nome</string>
+    <string name="et_qtdPaginas">Páginas</string>
+    <string name="rb_livro">Livro</string>
+    <string name="rb_revista">Revista</string>
+    <string name="et_isbn">ISBN</string>
+    <string name="et_edicao">Edição</string>
+    <string name="btn_buscarExemplar">Buscar</string>
+    <string name="btn_inserirExemplar">Inserir</string>
+    <string name="btn_modificarExemplar">Modificar</string>
+    <string name="btn_excluirExemplar">Excluir</string>
+    <string name="btn_listarExemplar">Listar</string>
 
     <!-- Values  Alunos-->
     <string name="tv_alunos">Alunos</string>
     <string name="et_ra">RA</string>
-
+    <string name="btn_buscarAluno">Buscar</string>
+    <string name="et_nomeAlunos">Nome</string>
+    <string name="et_emailAluno">Email</string>
+    <string name="btn_inserirAluno">Inserir</string>
+    <string name="btn_modificarAluno">Modificar</string>
+    <string name="btn_excluirAluno">Excluir</string>
+    <string name="btn_listarAluno">Listar</string>
 
 </resources>
