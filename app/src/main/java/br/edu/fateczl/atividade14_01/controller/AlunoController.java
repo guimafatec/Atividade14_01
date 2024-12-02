@@ -8,6 +8,9 @@ import br.edu.fateczl.atividade14_01.model.Aluno;
 import br.edu.fateczl.atividade14_01.persistence.AlunoDao;
 
 public class AlunoController implements IController<Aluno> {
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private final AlunoDao alunoDao;
 
     public AlunoController(AlunoDao alunoDao) {

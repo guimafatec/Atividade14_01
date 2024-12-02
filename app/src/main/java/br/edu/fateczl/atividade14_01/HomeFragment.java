@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 
 public class HomeFragment extends Fragment {
 
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private View view;
     public HomeFragment() {
         super();

@@ -13,6 +13,9 @@ import java.util.List;
 import br.edu.fateczl.atividade14_01.model.Livro;
 
 public class LivroDao implements ICRUDDao<Livro>, ILivroDao {
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private final Context context;
     private GenericDao gDao;
     private SQLiteDatabase db;

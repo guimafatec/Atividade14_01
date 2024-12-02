@@ -22,6 +22,9 @@ import br.edu.fateczl.atividade14_01.model.Livro;
 import br.edu.fateczl.atividade14_01.model.Revista;
 
 public class AluguelDao implements ICRUDDao<Aluguel>, IAluguelDao {
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private final Context context;
     private GenericDao gDao;
     private SQLiteDatabase db;

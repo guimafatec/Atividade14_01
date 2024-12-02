@@ -7,6 +7,9 @@ import br.edu.fateczl.atividade14_01.model.Revista;
 import br.edu.fateczl.atividade14_01.persistence.RevistaDao;
 
 public class RevistaController implements IController<Revista>{
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private final RevistaDao revistaDao;
 
     public RevistaController(RevistaDao revistaDao) {

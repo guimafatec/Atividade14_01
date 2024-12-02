@@ -9,6 +9,9 @@ import br.edu.fateczl.atividade14_01.persistence.AluguelDao;
 import br.edu.fateczl.atividade14_01.persistence.AlunoDao;
 
 public class AluguelController implements IController<Aluguel> {
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private final AluguelDao aluguelDao;
 
     public AluguelController(AluguelDao aluguelDao) {

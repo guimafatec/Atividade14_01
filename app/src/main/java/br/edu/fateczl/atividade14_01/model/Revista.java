@@ -3,6 +3,9 @@ package br.edu.fateczl.atividade14_01.model;
 import androidx.annotation.NonNull;
 
 public class Revista extends Exemplar{
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private String issn;
     public Revista() {
         super();

@@ -33,6 +33,9 @@ import br.edu.fateczl.atividade14_01.persistence.LivroDao;
 import br.edu.fateczl.atividade14_01.persistence.RevistaDao;
 
 public class AlugueisFragment extends Fragment {
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
 
     private View view;
     private Button btnBuscarAluguel, btnInserirAluguel, btnModificarAluguel, btnExcluirAluguel, btnListarAluguel;

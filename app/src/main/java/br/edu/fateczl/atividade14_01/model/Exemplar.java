@@ -3,6 +3,9 @@ package br.edu.fateczl.atividade14_01.model;
 import androidx.annotation.NonNull;
 
 public abstract class Exemplar {
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private int codigo;
     private String nome;
     private int qtdPaginas;

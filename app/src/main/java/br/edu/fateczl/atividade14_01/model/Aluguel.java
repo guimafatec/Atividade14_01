@@ -5,6 +5,9 @@ import androidx.annotation.NonNull;
 import java.time.LocalDate;
 
 public class Aluguel {
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private Aluno aluno;
     private Exemplar exemplar;
     private LocalDate dt_retirada;

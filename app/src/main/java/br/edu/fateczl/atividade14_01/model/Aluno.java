@@ -3,6 +3,9 @@ package br.edu.fateczl.atividade14_01.model;
 import androidx.annotation.NonNull;
 
 public class Aluno {
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private int ra;
     private String nome;
     private String email;

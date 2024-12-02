@@ -7,6 +7,9 @@ import br.edu.fateczl.atividade14_01.model.Livro;
 import br.edu.fateczl.atividade14_01.persistence.LivroDao;
 
 public class LivroController implements IController<Livro>{
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
     private final LivroDao livroDao;
 
     public LivroController(LivroDao livroDao) {

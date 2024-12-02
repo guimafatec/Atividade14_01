@@ -13,6 +13,9 @@ import java.util.List;
 import br.edu.fateczl.atividade14_01.model.Aluno;
 
 public class AlunoDao implements ICRUDDao<Aluno>, IAlunoDao{
+    /*
+     * @author: Gustavo Guimarães de Oliveira
+     */
 
     private final Context context;
     private GenericDao gDao;
