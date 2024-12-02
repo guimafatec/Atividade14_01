@@ -63,7 +63,7 @@ public class AluguelDao implements ICRUDDao<Aluguel>, IAluguelDao {
         int codigo = aluguel.getExemplar().getCodigo();
         int ra = aluguel.getAluno().getRa();
         String dt_retirada = aluguel.getDt_retirada().toString();
-        String where = String.format("exemplar_codigo = %d AND aluno_ra = %d AND data_retirada = %s", codigo, ra, dt_retirada);
+        String where = String.format("exemplar_codigo = %d AND aluno_ra = %d AND data_retirada = '%s'", codigo, ra, dt_retirada);
         db.update("aluguel", contentValues, where, null);
     }
 
@@ -72,7 +72,7 @@ public class AluguelDao implements ICRUDDao<Aluguel>, IAluguelDao {
         int codigo = aluguel.getExemplar().getCodigo();
         int ra = aluguel.getAluno().getRa();
         String dt_retirada = aluguel.getDt_retirada().toString();
-        String where = String.format("exemplar_codigo = %d AND aluno_ra = %d AND data_retirada = %s", codigo, ra, dt_retirada);
+        String where = String.format("exemplar_codigo = %d AND aluno_ra = %d AND data_retirada = '%s'", codigo, ra, dt_retirada);
         db.delete("aluguel", where, null);
     }
 
@@ -83,12 +83,14 @@ public class AluguelDao implements ICRUDDao<Aluguel>, IAluguelDao {
         int codigo = aluguel.getExemplar().getCodigo();
         int ra = aluguel.getAluno().getRa();
         String dt_retirada = aluguel.getDt_retirada().toString();
-        String where = String.format("a.exemplar_codigo = %d AND a.aluno_ra = %d AND a.data_retirada = %s", codigo, ra, dt_retirada);
+        String where = String.format("a.exemplar_codigo = %d AND a.aluno_ra = %d AND a.data_retirada = '%s'", codigo, ra, dt_retirada);
         String sql = "SELECT " +
                 "a.exemplar_codigo, a.aluno_ra, a.data_retirada, a.data_devolucao " +
                 "FROM aluguel a WHERE " + where;
+        System.out.println("AluguelDao: Query '" + sql + "'");
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor != null) {
+            System.out.println("AluguelDao: Nenhum aluguel encontrado");
             cursor.moveToFirst();
         }
         if (!cursor.isAfterLast()) {
@@ -103,14 +105,15 @@ public class AluguelDao implements ICRUDDao<Aluguel>, IAluguelDao {
             aluno = alunoCtrl.buscar(aluno);
 
             aluguel.setAluno(aluno);
-            if (revista.getNome() != null) {
+            if (revista != null) {
                 aluguel.setExemplar(revista);
             }
-            if (livro.getNome() != null) {
+            if (livro != null) {
                 aluguel.setExemplar(livro);
             }
             aluguel.setDt_devolucao(LocalDate.parse(cursor.getString(cursor.getColumnIndex("data_devolucao"))));
             aluguel.setDt_retirada(LocalDate.parse(cursor.getString(cursor.getColumnIndex("data_retirada"))));
+            System.out.println("AluguelDao: " + aluguel);
         }
         cursor.close();
         return aluguel;
@@ -119,12 +122,6 @@ public class AluguelDao implements ICRUDDao<Aluguel>, IAluguelDao {
     @SuppressLint("Range")
     @Override
     public List<Aluguel> findAll() throws SQLException {
-
-        Aluguel aluguel = new Aluguel();
-        Livro livro = new Livro();
-        Revista revista = new Revista();
-        Aluno aluno = new Aluno();
-
         List<Aluguel> alugueis = new ArrayList<>();
 
         String sql = "SELECT a.exemplar_codigo, a.aluno_ra, a.data_retirada, a.data_devolucao FROM aluguel a ";
@@ -132,28 +129,32 @@ public class AluguelDao implements ICRUDDao<Aluguel>, IAluguelDao {
         if (cursor != null) {
             cursor.moveToFirst();
         }
-        if (!cursor.isAfterLast()) {
+        while (!cursor.isAfterLast()) {
+            Livro livro = new Livro();
+            Aluguel aluguel = new Aluguel();
+            Revista revista = new Revista();
+            Aluno aluno = new Aluno();
+            livro.setCodigo(cursor.getInt(cursor.getColumnIndex("exemplar_codigo")));
+            System.out.println("AluguelDao: Buscando Livro");
+            livro = livroCtrl.buscar(livro);
 
-            try {
-                livro.setCodigo(cursor.getInt(cursor.getColumnIndex("exemplar_codigo")));
-                livro = livroCtrl.buscar(livro);
-            } catch (Exception e) {
-                revista = revistaCTtrl.buscar(revista);
-                revista.setCodigo(cursor.getInt(cursor.getColumnIndex("exemplar_codigo")));
-            }
+            revista.setCodigo(cursor.getInt(cursor.getColumnIndex("exemplar_codigo")));
+            System.out.println("AluguelDao: Buscando Revista");
+            revista = revistaCTtrl.buscar(revista);
+
 
             aluno.setRa(cursor.getInt(cursor.getColumnIndex("aluno_ra")));
             aluno = alunoCtrl.buscar(aluno);
 
             aluguel.setAluno(aluno);
-            if (revista.getNome() != null) {
+            if (revista != null) {
                 aluguel.setExemplar(revista);
-            }
-            if (livro.getNome() != null) {
+            } else if (livro != null) {
                 aluguel.setExemplar(livro);
             }
             aluguel.setDt_devolucao(LocalDate.parse(cursor.getString(cursor.getColumnIndex("data_devolucao"))));
             aluguel.setDt_retirada(LocalDate.parse(cursor.getString(cursor.getColumnIndex("data_retirada"))));
+
             alugueis.add(aluguel);
             cursor.moveToNext();
         }

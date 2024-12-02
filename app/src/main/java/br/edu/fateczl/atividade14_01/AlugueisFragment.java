@@ -64,9 +64,9 @@ public class AlugueisFragment extends Fragment {
         alunoCtrl = new AlunoController(new AlunoDao(view.getContext()));
 
         etDtRetirada = view.findViewById(R.id.etDtRetirada);
-        etDtRetirada.setText("2024-10-20");
+//        etDtRetirada.setText("2024-10-20");
         etDtDevolucao = view.findViewById(R.id.etDtDevolucao);
-        etDtDevolucao.setText("2024-10-30");
+//        etDtDevolucao.setText("2024-10-30");
         spAluno = view.findViewById(R.id.spAluno);
         spExemplar = view.findViewById(R.id.spExemplar);
 
@@ -83,11 +83,11 @@ public class AlugueisFragment extends Fragment {
         btnExcluirAluguel.setOnClickListener(op -> excluir());
         btnListarAluguel.setOnClickListener(op -> listar());
         btnBuscarAluguel.setOnClickListener(op -> buscar());
-        
+
         spinnerAluno();
         spinnerExemplar();
-        spAluno.setSelection(1);
-        spExemplar.setSelection(1);
+//        spAluno.setSelection(1);
+//        spExemplar.setSelection(1);
 
         return view;
     }
@@ -103,7 +103,6 @@ public class AlugueisFragment extends Fragment {
             Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
     private void modificar() {
@@ -139,6 +138,7 @@ public class AlugueisFragment extends Fragment {
             tvListarAlugueis.setText(buffer.toString());
         } catch (Exception e) {
             System.out.println("ERROR: " + e.getMessage());
+            e.printStackTrace();
             Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
@@ -153,10 +153,11 @@ public class AlugueisFragment extends Fragment {
                 Toast.makeText(view.getContext(), "Aluguel não encontrado", Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
-            System.out.println("ERROR: " + e.getMessage());
+            System.err.println(e.getMessage());
+            e.printStackTrace();
             Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        limpaCampos();
+//        limpaCampos();
     }
 
     private void preencheCampos(Aluguel aluguel) {
@@ -168,9 +169,9 @@ public class AlugueisFragment extends Fragment {
 
     private Aluguel montaAluguel() {
         String livroSelecionado = spExemplar.getSelectedItem().toString();
-        String atributosExemplar[] = livroSelecionado.split("|");
+        String atributosExemplar[] = livroSelecionado.split("\\|");
         String alunoSelecionado = spAluno.getSelectedItem().toString();
-        String atributosaluno[] = alunoSelecionado.split("|");
+        String atributosaluno[] = alunoSelecionado.split("\\|");
 
         Aluno aluno = montaAluno(atributosaluno);
         Aluguel aluguel = new Aluguel();
@@ -183,20 +184,26 @@ public class AlugueisFragment extends Fragment {
             Revista revista = montaRevista(atributosExemplar);
             aluguel.setExemplar(revista);
         }
+        String dtRetirada = etDtRetirada.getText().toString();
+        dtRetirada = dtRetirada.isEmpty() ? LocalDate.now().toString() : dtRetirada;
+        aluguel.setDt_retirada(LocalDate.parse(dtRetirada));
 
-        aluguel.setDt_retirada(LocalDate.parse(etDtRetirada.getText().toString()));
-        aluguel.setDt_devolucao(LocalDate.parse(etDtDevolucao.getText().toString()));
+        String dtDevolucao = etDtDevolucao.getText().toString();
+        dtDevolucao = dtDevolucao.isEmpty() ? LocalDate.now().toString() : dtDevolucao;
+        aluguel.setDt_devolucao(LocalDate.parse(dtDevolucao));
         return aluguel;
     }
+
     private void limpaCampos() {
         etDtRetirada.setText("");
         etDtDevolucao.setText("");
         spAluno.setSelection(0);
         spExemplar.setSelection(0);
     }
+
     private void spinnerExemplar() {
         String default_item = "Selecione um Exemplar";
-        try{
+        try {
             List<String> exemplares = new ArrayList<>();
             exemplares.add(default_item);
             List<Livro> livros = livroCtrl.listar();
@@ -204,7 +211,7 @@ public class AlugueisFragment extends Fragment {
             for (Livro livro : livros) {
                 exemplares.add(livro.toString());
             }
-            for (Revista revista: revistas) {
+            for (Revista revista : revistas) {
                 exemplares.add(revista.toString());
             }
             ArrayAdapter adapter = new ArrayAdapter(view.getContext(), android.R.layout.simple_spinner_item, exemplares);
@@ -217,7 +224,7 @@ public class AlugueisFragment extends Fragment {
 
     private void spinnerAluno() {
         String default_item = "Selecione um Aluno";
-        try{
+        try {
             List<String> listAlunos = new ArrayList<>();
             listAlunos.add(default_item);
             List<Aluno> alunos = alunoCtrl.listar();
@@ -235,57 +242,63 @@ public class AlugueisFragment extends Fragment {
     private Livro montaLivro(String atributos[]) {
         Livro livro = new Livro();
 
-        String codigoExemplarStr = atributos[0];
-        int codigo = Integer.parseInt(codigoExemplarStr.isEmpty() ? "0" : codigoExemplarStr);
+        if (atributos[0] != "Selecione um Exemplar") {
+            String codigoExemplarStr = atributos[0].strip();
+            int codigo = Integer.parseInt(codigoExemplarStr.isEmpty() ? "0" : codigoExemplarStr);
 
-        String isbnStr = atributos[1];
-        String nomeStr = atributos[2];
+            String isbnStr = atributos[1].strip();
+            String nomeStr = atributos[2].strip();
 
-        String qtdPaginasStr = atributos[3];
-        int qtdPaginas = Integer.parseInt(qtdPaginasStr.isEmpty() ? "0" : qtdPaginasStr);
+            String qtdPaginasStr = atributos[3].strip();
+            int qtdPaginas = Integer.parseInt(qtdPaginasStr.isEmpty() ? "0" : qtdPaginasStr);
 
-        String edicaoStr = atributos[4];
-        int edicao = Integer.parseInt(edicaoStr.isEmpty() ? "0" : edicaoStr);
+            String edicaoStr = atributos[4].strip();
+            int edicao = Integer.parseInt(edicaoStr.isEmpty() ? "0" : edicaoStr);
 
-        livro.setCodigo(codigo);
-        livro.setNome(nomeStr);
-        livro.setQtdPaginas(qtdPaginas);
-        livro.setIsbn(isbnStr);
-        livro.setEdicao(edicao);
+            livro.setCodigo(codigo);
+            livro.setNome(nomeStr);
+            livro.setQtdPaginas(qtdPaginas);
+            livro.setIsbn(isbnStr);
+            livro.setEdicao(edicao);
+        }
         return livro;
     }
 
     private Revista montaRevista(String atributos[]) {
         Revista revista = new Revista();
+        if (atributos[0] != "Selecione um Exemplar") {
+            String codigoExemplarStr = atributos[0].strip();
+            int codigo = Integer.parseInt(codigoExemplarStr.isEmpty() ? "0" : codigoExemplarStr);
 
-        String codigoExemplarStr = atributos[0].strip();
-        int codigo = Integer.parseInt(codigoExemplarStr.isEmpty() ? "0" : codigoExemplarStr);
+            String issnStr = atributos[1].strip();
+            String nomeStr = atributos[2].strip();
 
-        String issnStr = atributos[1].strip();
-        String nomeStr = atributos[2].strip();
+            String qtdPaginasStr = atributos[3].strip();
+            int qtdPaginas = Integer.parseInt(qtdPaginasStr.isEmpty() ? "0" : qtdPaginasStr);
 
-        String qtdPaginasStr = atributos[3].strip();
-        int qtdPaginas = Integer.parseInt(qtdPaginasStr.isEmpty() ? "0" : qtdPaginasStr);
-
-        revista.setCodigo(codigo);
-        revista.setNome(nomeStr);
-        revista.setQtdPaginas(qtdPaginas);
-        revista.setIssn(issnStr);
+            revista.setCodigo(codigo);
+            revista.setNome(nomeStr);
+            revista.setQtdPaginas(qtdPaginas);
+            revista.setIssn(issnStr);
+        }
         return revista;
     }
 
     private Aluno montaAluno(String atributos[]) {
+
         Aluno aluno = new Aluno();
 
-        String etRaStr = atributos[0].strip();
-        int ra = Integer.parseInt(etRaStr.isEmpty() ? "0" : etRaStr);
+        if (atributos[0] != "Selecione um Aluno") {
+            String etRaStr = atributos[0].strip();
+            int ra = Integer.parseInt(etRaStr.isEmpty() ? "0" : etRaStr);
 
-        String etNomeAlunoStr = atributos[1].strip();
-        String etEmailAlunoStr = atributos[2].strip();
+            String etNomeAlunoStr = atributos[1].strip();
+            String etEmailAlunoStr = atributos[2].strip();
 
-        aluno.setRa(ra);
-        aluno.setNome(etNomeAlunoStr);
-        aluno.setEmail(etEmailAlunoStr);
+            aluno.setRa(ra);
+            aluno.setNome(etNomeAlunoStr);
+            aluno.setEmail(etEmailAlunoStr);
+        }
         return aluno;
     }
 }

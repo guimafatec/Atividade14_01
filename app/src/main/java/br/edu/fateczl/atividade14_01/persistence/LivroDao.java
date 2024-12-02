@@ -76,8 +76,12 @@ public class LivroDao implements ICRUDDao<Livro>, ILivroDao {
             livro.setQtdPaginas(cursor.getInt(cursor.getColumnIndex("qtd_paginas")));
             livro.setIsbn(cursor.getString(cursor.getColumnIndex("isbn")));
             livro.setEdicao(cursor.getInt(cursor.getColumnIndex("edicao")));
+            System.out.println("LivroDao: " + livro);
         }
         cursor.close();
+        if (livro.getNome() == null) {
+            return null;
+        }
         return livro;
     }
 

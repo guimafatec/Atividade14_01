@@ -79,6 +79,9 @@ public class RevistaDao implements ICRUDDao<Revista>, IRevistaDao {
         }
         System.out.println("REVISTA" + revista.toString());
         cursor.close();
+        if (revista.getNome() == null) {
+            return null;
+        }
         return revista;
     }
 

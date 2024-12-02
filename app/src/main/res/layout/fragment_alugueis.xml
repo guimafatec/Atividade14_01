@@ -32,8 +32,8 @@
         android:id="@+id/etDtRetirada"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="15dp"
         android:ems="10"
         android:hint="@string/date_format"
         android:inputType="text"
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="49dp"
         android:text="@string/tv_dtRetirada"
         android:textSize="20sp"
@@ -115,12 +115,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="324dp"
         android:layout_marginEnd="44dp"
+        android:layout_marginBottom="324dp"
         android:text="@string/btn_modificarAluno"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/etDtRetirada"
-        app:layout_constraintTop_toBottomOf="@+id/spExemplar" />
+        app:layout_constraintTop_toBottomOf="@+id/tvRaName" />
 
     <Button
         android:id="@+id/btnInserirAluguel"
@@ -146,7 +148,7 @@
         android:id="@+id/btnBuscarAluguel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="10dp"
         android:text="@string/btn_buscarAluguel"
         app:layout_constraintBottom_toTopOf="@+id/btnModificarAluguel"
@@ -156,14 +158,15 @@
         android:id="@+id/tvListarAlugueis"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="22dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginBottom="26dp"
         android:scrollbars="vertical"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExcluirAluguel" />
+        app:layout_constraintTop_toBottomOf="@+id/btnListarAluguel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

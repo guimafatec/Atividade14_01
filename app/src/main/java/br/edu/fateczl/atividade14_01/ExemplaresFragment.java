@@ -174,14 +174,14 @@ public class ExemplaresFragment extends Fragment {
             int codigo = Integer.parseInt(codigoExemplarStr.isEmpty() ? "0" : codigoExemplarStr);
             livro.setCodigo(codigo);
             livro = livroCtrl.buscar(livro);
-            if (livro.getNome() != null) {
+            if (livro != null) {
                 preencheCampos(livro);
             } else{
                 Revista revista = new Revista();
                 revista.setCodigo(codigo);
                 limpaCampos();
                 revista = revistaCtrl.buscar(revista);
-                if (revista.getNome() != null) {
+                if (revista != null) {
                     preencheCampos(revista);
                 } else {
                     Toast.makeText(view.getContext(), "Exemplar não foi encontrado", Toast.LENGTH_LONG).show();

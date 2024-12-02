@@ -127,7 +127,6 @@ public class AlunosFragment extends Fragment {
         } catch (Exception e) {
             Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
-        limpaCampos();
     }
 
     private void preencheCampos(Aluno aluno) {
