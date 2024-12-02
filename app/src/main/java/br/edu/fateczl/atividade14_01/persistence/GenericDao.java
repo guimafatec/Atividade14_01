@@ -9,7 +9,7 @@ public class GenericDao extends SQLiteOpenHelper {
      * @author: Gustavo Guimarães de Oliveira
      */
     private static final String DATABASE = "BIBLIOTECA";
-    private static final int DATABASE_VER = 1;
+    private static final int DATABASE_VER = 2;
     private final String CREATE_TABLE_ALUNO =
             "CREATE TABLE aluno ( " +
                     "ra INTEGER PRIMARY KEY, " +
@@ -32,7 +32,7 @@ public class GenericDao extends SQLiteOpenHelper {
     private final String CREATE_TABLE_REVISTA =
             "CREATE TABLE revista ( " +
                     "exemplar_codigo INTEGER, " +
-                    "isbn CHAR(8), " +
+                    "issn CHAR(8), " +
                     "FOREIGN KEY (exemplar_codigo) REFERENCES exemplar(codigo) " +
                     ")";
     private final String CREATE_TABLE_ALUGUEL =

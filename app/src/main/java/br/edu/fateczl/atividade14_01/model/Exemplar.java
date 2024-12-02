@@ -33,4 +33,9 @@ public abstract class Exemplar {
     public void setQtdPaginas(int qtdPaginas) {
         this.qtdPaginas = qtdPaginas;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s | %s | %s ", codigo, nome, qtdPaginas);
+    }
 }

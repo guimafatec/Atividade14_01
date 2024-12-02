@@ -29,6 +29,7 @@ public class Livro extends Exemplar {
     @NonNull
     @Override
     public String toString() {
-        return String.format("%s - %s - %d Edição", isbn, getNome(), edicao);
+        return String.format("%d | %s | %s | %d | %d", getCodigo(), isbn, getNome(), getQtdPaginas(), edicao);
     }
 }
+

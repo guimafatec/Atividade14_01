@@ -18,6 +18,6 @@ public class Revista extends Exemplar{
     @NonNull
     @Override
     public String toString() {
-        return String.format("%s - %s", issn, getNome());
+        return String.format("%d | %s | %s | %d", getCodigo(), issn, getNome(), getQtdPaginas());
     }
 }

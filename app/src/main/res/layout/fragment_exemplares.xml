@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRaName3" />
 
     <Button
-        android:id="@+id/btn_Buscar"
+        android:id="@+id/btnBuscarExemplar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="46dp"
@@ -39,10 +39,10 @@
         android:text="@string/btn_buscarExemplar"
         app:layout_constraintBottom_toTopOf="@+id/etQtdPaginas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etCodigo" />
+        app:layout_constraintStart_toEndOf="@+id/etCodigoExemplar" />
 
     <EditText
-        android:id="@+id/etCodigo"
+        android:id="@+id/etCodigoExemplar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -51,7 +51,7 @@
         android:ems="10"
         android:hint="@string/et_codigo"
         android:inputType="numberSigned"
-        app:layout_constraintEnd_toStartOf="@+id/btn_Buscar"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscarExemplar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_alugueis3" />
 
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="13dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/etIsbn"
+        app:layout_constraintBottom_toTopOf="@+id/etIsbnIssn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -105,7 +105,7 @@
     </RadioGroup>
 
     <EditText
-        android:id="@+id/etIsbn2"
+        android:id="@+id/etEdicao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
@@ -114,11 +114,11 @@
         android:hint="@string/et_edicao"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etIsbn"
+        app:layout_constraintStart_toEndOf="@+id/etIsbnIssn"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <EditText
-        android:id="@+id/etIsbn"
+        android:id="@+id/etIsbnIssn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
@@ -127,7 +127,7 @@
         android:ems="10"
         android:hint="@string/et_isbn"
         android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@+id/etIsbn2"
+        app:layout_constraintEnd_toStartOf="@+id/etEdicao"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -139,7 +139,7 @@
         android:layout_marginEnd="1dp"
         android:text="@string/btn_modificarAluno"
         app:layout_constraintEnd_toEndOf="@+id/btnListarExemplar"
-        app:layout_constraintTop_toBottomOf="@+id/etIsbn2" />
+        app:layout_constraintTop_toBottomOf="@+id/etEdicao" />
 
     <Button
         android:id="@+id/btnInserirExemplar"
@@ -147,8 +147,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:text="@string/btn_inserirAluno"
-        app:layout_constraintStart_toStartOf="@+id/etIsbn"
-        app:layout_constraintTop_toBottomOf="@+id/etIsbn" />
+        app:layout_constraintStart_toStartOf="@+id/etIsbnIssn"
+        app:layout_constraintTop_toBottomOf="@+id/etIsbnIssn" />
 
     <Button
         android:id="@+id/btnListarExemplar"

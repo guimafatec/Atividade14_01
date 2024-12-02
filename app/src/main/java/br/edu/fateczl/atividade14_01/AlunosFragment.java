@@ -101,9 +101,9 @@ public class AlunosFragment extends Fragment {
 
     private void listar() {
         try {
-            List<Aluno> jogadores = alunoCtrl.listar();
+            List<Aluno> alunos = alunoCtrl.listar();
             StringBuffer buffer = new StringBuffer();
-            for (Aluno a : jogadores) {
+            for (Aluno a : alunos) {
                 buffer.append(a.toString() + "\n");
             }
             tvListarAlunos.setText(buffer.toString());

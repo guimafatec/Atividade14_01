@@ -12,6 +12,8 @@
     <string name="tv_alugueis">Aluguéis</string>
     <string name="tv_dtRetirada">Data de Retirada</string>
     <string name="tv_dtDevolucao">Data de Devolução</string>
+    <string name="date_format">YYYY-MM-DD</string>
+    <string name="btn_buscarAluguel">Buscar</string>
 
     <!-- Values  Exemplares-->
     <string name="tv_exemplares">Exemplares</string>
